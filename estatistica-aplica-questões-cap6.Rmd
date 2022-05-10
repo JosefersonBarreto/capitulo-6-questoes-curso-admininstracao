@@ -1,0 +1,263 @@
+---
+title: <p style="text-align:center"><img src="https://www.infoescola.com/wp-content/uploads/2018/05/UEPB.png" width="1200" height="360" /></p>
+  
+  
+  questões capítulo 6- Estatística aplicada a Administração <font color='white' face="Roman"> </font>-aula de duvidas <font color='white' face="Roman">II </font>
+author: <font color='black' face="Arial Black">joseferson da silva barreto  </font>
+date: <font color='black'> 10/05/2022 
+output: 
+  html_document:
+  #prettydoc::html_pretty:
+   # theme: cayman
+   # highlight: github
+    toc: true
+    toc_float: true
+   #theme: 
+      #ersion: 4
+     # bg: "#9ac7db"
+      #fg: "#5757b1" 
+      #primary: "#5c2cca"
+     # navbar-bg: "#13173C"
+      #base_font: 
+       # google: Prompt
+      #heading_font:
+       # google: Sen
+      #code_font:
+       # google: 
+          # arguments to sass::font_google() 
+          #family: JetBrains Mono
+         # local: false
+      #code_font:
+       # google: 
+          # arguments to sass::font_google() 
+        #  family: JetBrains Mono
+        #  local: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{css my-header-colors, echo = FALSE}
+.page-header {
+     color: #fff;
+  text-align: center;
+  background-color: #9ac7db;
+    background-image: linear-gradient(120deg, #11706f, #9ac7db);
+}
+
+body {
+  background-color: #9ac7db;
+  
+}
+
+badCode {
+background-color: red;
+}
+
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: purple;
+}
+```
+
+# Questão 1
+
+
+**1.** Um fabricante afirma que seus pneus radiais suportam em média
+uma quilometragem superior a 40.000 km. Uma prefeitura compra
+os pneus desse fabricante, mas existe uma dúvida no seu setor de
+compras: “A afirmação do fabricante está correta?”. Para testá-la, a
+prefeitura selecionou uma amostra de 49 pneus, e os testes apontaram uma média de 43.000 km. Sabe-se que a quilometragem de
+todos os pneus tem desvio padrão de 6.500 km. Se o comprador
+(gestor público) testar essa afirmação ao nível de significância de 5%,
+qual será sua conclusão? 
+
+
+##  **Resolução:**
+
+Sempre, em um exercício de tomada de decisão, precisamos
+formular um teste de hipótese, seguindo os passos apresentados:  
+1) Formular as hipóteses.  
+2) Definir o nível de significância.  
+3) Definir a distribuição amostral a ser utilizada.  
+4) Definir os limites da região de rejeição (gráfico).  
+5) Calcular a estatística da distribuição escolhida a partir   
+dos valores amostrais obtidos e tomar a decisão.
+
+Vamos primeiramente retirar os dados do problema:     
+$n = 49; \bar{x}= 43.000$    e $\sigma = 6.500$
+
+Vamos estabelecer as hipóteses com base no exercício: 
+
+## <font color="red" face="arial black" > observação </font>
+
+segundo o livro,quando temos a informação **superior a ou inferior a** temos que "inverter a hipótese $H_0$ ,logo,temos:
+
+$H_o: m \leq 40.000$  (situação com quilometragem menor a que o fabricante afirmou)   
+$H_1: m > 40.000$ (afirmação  do fabricante) 
+
+ 
+Caso tenhamos uma média superior a 40.000 pessoas,
+temos que o fabricantes está correto . Mas caso $H_0$ não for rejeitada,
+então temos que o fabricantes está errado .
+
+
+$\alpha = 0,05$  
+A estatística escolhida é Z. Substituindo os valores da
+amostra e o da hipótese $H_0$ na estatística de Z, teremos:
+
+
+## <font color="red" face="arial black" > Atenção</font>  
+como nosso **n** foi maior que 30 vamos utilizar a estatística **z**.  
+
+Logo temos:
+
+$$z=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}} =\frac{43000-40000}{\frac{6500}{\sqrt{49}}}=3,23$$
+
+
+para encontrar o valor da distribuição normal vamos usar a formula:
+
+
+$$z=\frac{\bar{x}-\mu_0}{\sigma} =\frac{43000-40000}{6500}=0,461$$
+
+
+agora vamos utilizar a tabela da normal,disponível em <https://professorguru.com.br/tabela-normal.html> 
+
+após verificarmos a localização da probabilidade **0,461** o valor mais próximo encontrado foi (1,77),logo, $Z_{0,05}=1,77$
+
+de acordo com os resultados temos :  
+
+Conclusão: como o valor $Z_{calculado}> Z_{tabelado}$ rejeita-se a hipótese $H_0$ a 5% de significância ,logo,os pneus de fato pussuem uma resistência média superior a 40.000 km.
+
+# Questão 2
+
+**2.**Duas técnicas de cobrança de impostos são aplicadas em dois grupos
+de funcionários do setor de cobrança de uma prefeitura. A técnica
+A foi aplicada em um grupo de 12 funcionários e resultou em uma
+efetivação média de pagamento de 76% e uma variância de 50%. Já a
+técnica B foi aplicada em um grupo de 15 funcionários e resultou em
+uma efetivação média de 68% e uma variância de 75%. Considerando
+as variâncias estatisticamente iguais e com uma significância de 0,05,
+verifique se as efetivações de pagamento são estatisticamente iguais.  
+
+## **Resolução:**  
+ 
+<font face="arial black" > teste de hipoteses para duas médias </font>  
+
+queremos testar se duas médias são estatisticamente iguais ,logo temos com hipóteses:  
+ hipótese nula:  
+$h_0: \mu_1=\mu_2$ (as efetivações dos pagamentos são iguais)    
+hipótese alternativa:  
+$h_1:\mu_1 \neq \mu_2$(as efetivações dos pagamentos diferem entre si)
+
+
+primeiramente vamos definir cada parâmetro   
+
+$n_1 = 12$; $n_2 = 15$; $\bar{x_1}= 76$ ; $\bar{x_2}= 68$ ; $s_1^2 = 50$; ; $s_2^2 = 75$ e $\alpha = 0,05$  
+
+$S_p$: desvio ponderado pelos graus de liberdade,ou seja,calculamos um
+novo desvio padrão cujo fator de ponderação corresponde ao grau
+de liberdade de cada amostra.   
+
+Para você encontrar o valor tabelado que limita as regiões de
+aceitação e de rejeição na tabela t de Student, o número de graus de
+liberdade (v) a ser usado na tabela será dado por:
+$v = n_1 + n_2 –2$  
+Onde:
+n1 e n2 correspondem aos tamanhos de amostras utilizados.
+
+
+## <font color="red" face="arial black" > observação </font>  
+
+como estamos querendo comparar se m1 e m2 são iguais ou seja  $\mu_1-\mu_2=0$,   
+$\mu_1-\mu_2$ recebe **0**, mas se nos tivéssemos  outra hipótese,nos poderiamos ter outro valor,mas como estamos querendo comparar se as duas médias são iguais temos: $\mu_1-\mu_2=0$   
+
+ vale ressaltar que o calculo do $S_p$ desvio ponderado é dado pela formula 
+ 
+ $$S_p=\sqrt{\frac{(n_a-1).s^2_a-(n_b-1).s_b^2}{{n_a+n_b-2}}}$$
+Substituindo:  
+ 
+  $$S_p=\sqrt{\frac{(12-1).50+
+  (15-1).75}{{12+15-2}}}=\sqrt{\frac{(11).50+
+  (14).75}{{25}}}=\sqrt{\frac{550+
+  1050}{{25}}}=\sqrt{64}=8$$  
+  
+Agora que encontramos o valor de $S_p$ vamos substituir na formula abaixo 
+
+$$t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{s_p{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}} =\frac{(76-68)-(0)}{8{\sqrt{\frac{1}{12}+\frac{1}{15}}}}=\frac{8}{8{\sqrt{\frac{5+4}{60}}}}=\frac{1}{{\sqrt{\frac{9}{60}}}}=2,58$$
+
+$t_{0,025}=2,060$(resultado do livro)
+
+agora devemos comparar o nosso valor calculado com o valor tabelado da t student ,caso o valor do $t_{calculado}$ for maior que o $t_{tabelado}$ rejeitamos $h_0$,caso contrário,não rejeitamos $h_o$.  
+
+Usando a formula dos graus de liberdade ,temos:
+
+$v = n_1 + n_2 –2=12+15-2=25$
+
+logo,temos 25 graus de liberdade e o nosso $\alpha=0,05$, dessa forma podemos 
+observar na tabela disponível em <https://professorguru.com.br/tabela-t-student.html>
+
+considerando 25 graus de liberdade e uma probabilidade de 5% checamos na tabela que o valor indicado é **2,060** (mesmo valor do livro)
+
+
+
+Conclusão: como o valor calculado foi maior do que o 
+tabelado (2,060), ele caiu na região de rejeição de $H_0$ ,logo, as médias dos pagamentos diferem entre si a 5% de significância pelo teste T.
+
+
+# Questão 3
+
+**3.** Um secretário de Educação de uma prefeitura deseja saber se há,
+no futuro, profissionais promissores em escolas de regiões pobres e
+de regiões ricas. Uma amostra de 16 estudantes de uma zona pobre 
+resultou, em um teste específico, numa média de 107 pontos e num
+desvio padrão de 10 pontos. Já 14 estudantes de uma região rica
+apresentaram uma média de 112 pontos e um desvio padrão de 8
+pontos. Você deve verificar se a média dos pontos dos dois grupos
+é diferente ou igual a fim de que o gestor possa saber se ele deve
+investir em qualquer uma das áreas ou se uma delas é mais promissora (primeiro verifique se as variâncias são estatisticamente iguais
+ou diferentes).  
+
+## Resolução
+**definindo as hipóteses a serem testadas:** 
+$h_0$ se as hipóteses forem iguais     
+$h_0:\mu_0-\mu_1 =0$    
+
+$h_1:\mu_0-\mu_1 \neq 0$  
+
+primeiramente vamos definir cada parâmetro   
+
+$n_1 = 14$; $n_2 = 16$; $\bar{x_1}= 112$ ; $\bar{x_2}= 107$ ; $s_1^2 = 8^2$; ; $s_2^2 = 10^2$ e $\alpha = 0,05$  
+ 
+ como nossas amostras são independentes e pequenas, mas  apresentam 
+variâncias populacionais desconhecidas e estatisticamente desiguais**(caso 3)**,usaremos a seguinte formula: $$t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}}$$
+ 
+substituindo os valores na formula:
+ 
+$$t=\frac{(\bar{x}_1-\bar{x}_2)-(\mu_1-\mu_2)}{{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}} =\frac{(112-107)-(0)}{{\sqrt{\frac{8^2}{14}+\frac{10^2}{16}}}}=-1,52$$
+
+Outra diferença está no cálculo do número de graus de liberdade, 
+pois, nessa situação, utilizaremos uma aproximação que é dada pela 
+expressão a seguir:
+    $$v =gl= \frac{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})^2}{\frac{(\frac{s_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{s_2^2}{n_2})^2}{n_2-1}}=$$
+substituindo os valores temos:
+
+
+  $$v =gl= \frac{(\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2})^2}{\frac{(\frac{s_1^2}{n_1})^2}{n_1-1}+\frac{(\frac{s_2^2}{n_2})^2}{n_2-1}}= \frac{(\frac{8^2}{14}+\frac{10^2}{16})^2}{\frac{(\frac{8^2}{14})^2}{14-1}+\frac{(\frac{10^2}{16})^2}{16-1}}=\frac{(\frac{64}{14}+\frac{100}{16})^2}{\frac{(\frac{64}{14})^2}{14-1}+\frac{(\frac{100}{16})^2}{16-1}}= \frac{117,10}{\frac{20,90}{13}+\frac{39,06}{15}}=  \frac{117,10}{1.60+2.6}=\frac{117.11}{4.21}=27,815$$
+
+Se esse valor calculado apresentar valores decimais, você deve 
+fazer o arredondamento para um número inteiro
+
+
+$v = 27,815 = 28$ (graus de liberdade obtidos pela aproximação).  
+
+e o nosso $\alpha=0,05$, dessa forma podemos 
+observar na tabela disponível em <https://professorguru.com.br/tabela-t-student.html>  
+$t_{0,025} = 2,048$ (com 28 gl)
+
+Conclusão: como  $t_{calculado} < t_{tabelado}$ podemos concluir que não rejeita-se a hipótese nula a 5% de significância ,logo, 
+as médias são estatisticamente iguais, o que indica que as duas regiões
+apresentam o mesmo potencial.
